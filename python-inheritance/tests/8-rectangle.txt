@@ -1,0 +1,93 @@
+# 8-rectangle.txt
+# Travis Adamson
+
+===================================
+Doctesting for 8-rectangle.py
+===================================
+
+General Purpose of Class: Rectangle
+
+Creates a Rectangle class that inherits from BaseGeometry:
+
+Usage examples:
+
+	>>> Rectangle = __import__('8-rectangle').Rectangle
+	>>> rect_1 = Rectangle(1,2)
+	>>> type(base_geo)
+	<class '8-rectangle.py.Rectangle'>
+
+Area should raise an Exception due to not being implemented:
+
+	>>> rect_1.area()
+	Traceback (most recent call last):
+	Exception: area() is not implemented
+
+integer_validator(...) makes sure that the parameter is an integer.
+
+If value is a valid integer nothing happens
+
+	>>> rect_1.integer_validator("width", 1)
+
+	>>> rect_1.integer_validator("height", 1)
+
+If value is not an integer, a TypeError is raised:
+
+	>>> rect_1.integer_validator("width", "number")
+	Traceback (most recent call last):
+	TypeError: width must be an integer
+
+	>>> rect_1.integer_validator("height", "not")
+	Traceback (most recent call last):
+	TypeError: height must be an integer
+
+If value is less than 0 a ValueError is raised:
+
+	>>> rect_1.integer_validator("invalid", -1)
+	Traceback (most recent call last):
+	ValueError: invalid must be greater than 0
+
+	>>> rect_1.integer_validator("It", 0)
+	Traceback (most recent call last):
+	ValueError: It must be greater than 0
+
+	>>> rect_1.integer_validator("still", True)
+	Traceback (most recent call last):
+	TypeError: still must be an integer
+
+	>>> rect_1.integer_validator("even tuples", (1,))
+	Traceback (most recent call last):
+	TypeError: even tuples must be an integer
+
+	>>> rect_1.integer_validator("I said it", [1])
+	Traceback (most recent call last):
+	TypeError: I said it must be an integer
+
+	>>> rect_1.integer_validator("again, it", {1, 2})
+	Traceback (most recent call last):
+	TypeError: again, it must be an integer
+
+	>>> rect_1.integer_validator("one last time, it", None)
+	Traceback (most recent call last):
+	TypeError: one last time, it must be an integer
+
+Both name and value must be passed to integer_validator:
+
+	>>> rect_1.integer_validator()
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+	>>> rect_1.integer_validator("Nothing")
+	Traceback (most recent call last):
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+Two arguments must be passed to Rectangle:
+
+	>>> rect_1 = Rectangle(1)
+	Traceback (most recent call last):
+	TypeError: Rectangle() missing 1 argument
+
+	>>> rect_1 = Rectangle()
+	Traceback (most recent call last):
+	TypeError: Rectangle() missing 2 arguments
+
+
