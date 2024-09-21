@@ -21,10 +21,6 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    def __del__(self):
-        if not self.__initialIdGiven:
-            Base.__nb_objects -= 1
-
 if __name__ == '__main__':
     b = Base()
     print(b.id)
